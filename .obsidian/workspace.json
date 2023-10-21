@@ -1,0 +1,159 @@
+{
+  "main": {
+    "id": "7d8158afd6d5c8e9",
+    "type": "split",
+    "children": [
+      {
+        "id": "4cecc904535c565e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8ac952e26bf33009",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "도서/클린코드 이제는 파이썬이다/01_준비/01_에러 메시지 파악과 고수의 도움을 받기 위한 에티켓.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d995e636d4157ca4",
+    "type": "split",
+    "children": [
+      {
+        "id": "77fc01ab53eb4576",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cb6980d1a5748c64",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b169288159071023",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "e697d0c6cfc5ed73",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "131aa0f6c1f78cb6",
+    "type": "split",
+    "children": [
+      {
+        "id": "cd22c6e3fc92c45c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a19db7a3bf7d14fb",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "도서/클린코드 이제는 파이썬이다/01_준비/01_에러 메시지 파악과 고수의 도움을 받기 위한 에티켓.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1690a4b9accdc5c6",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "도서/클린코드 이제는 파이썬이다/01_준비/01_에러 메시지 파악과 고수의 도움을 받기 위한 에티켓.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "10dcbccfd30b07c6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "f95751afd1242975",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "도서/클린코드 이제는 파이썬이다/01_준비/01_에러 메시지 파악과 고수의 도움을 받기 위한 에티켓.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:퀵 스위처 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 데일리 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false
+    }
+  },
+  "active": "cb6980d1a5748c64",
+  "lastOpenFiles": [
+    "도서/클린코드 이제는 파이썬이다/README.md",
+    "2023-10-21.md",
+    "도서/클린코드 이제는 파이썬이다/01_준비/01_에러 메시지 파악과 고수의 도움을 받기 위한 에티켓.md",
+    "도서/파이썬 코딩의 기술/파이썬다운 생각/01_사용중인 파이썬의 버전을 알자.md",
+    "도서/클린코드 이제는 파이썬이다/01_준비",
+    "도서/파이썬 코딩의 기술/파이썬다운 생각/README.md",
+    "도서/파이썬 코딩의 기술/파이썬다운 생각"
+  ]
+}
