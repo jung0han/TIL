@@ -10,7 +10,7 @@ sudo npm install -g n
 
 시스템 폴더의 권한을 가져오면 sudo 명령어 없이 n install을 할 수 있다.
 
-```shell
+```bash
 # make cache folder (if missing) and take ownership
 sudo mkdir -p /usr/local/n
 sudo chown -R $(whoami) /usr/local/n
@@ -22,7 +22,7 @@ sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/lo
 
 ls-remote 명령을 통해 설치 가능한 버전 정보를 확인 할 수 있다.
 
-```shell
+```bash
 n ls-remote
 ```
 
@@ -54,7 +54,7 @@ Listing remote... Displaying 20 matches (use --all to see all).
 
 Node를 설치하고 싶다면,
 
-```shell
+```bash
 # 특정 버전을 설치
 n install 18.18.2
 # 최신 버전 설치
@@ -65,7 +65,7 @@ n lts
 
 버전을 선택하려면 아래 명령어를 입력하고 원하는 버전을 선택하면 된다.
 
-```shell
+```bash
 n
 ```
 
@@ -88,7 +88,7 @@ Use up/down arrow keys to select a version, return key to install, d to delete, 
 
 이 경우 nvm 폴더를 삭제할 경우 정상적으로 설치된 버전이 인식된다.
 
-```shell
+```bash
 rm -rf ~/.nvm
 ```
 
