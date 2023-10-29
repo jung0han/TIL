@@ -91,3 +91,7 @@ Use up/down arrow keys to select a version, return key to install, d to delete, 
 ```shell
 rm -rf ~/.nvm
 ```
+
+### Reference
+
+n - npm : https://www.npmjs.com/package/n
