@@ -94,4 +94,5 @@ rm -rf ~/.nvm
 
 ### Reference
 
-n - npm : https://www.npmjs.com/package/n
+[`n` – Interactively Manage Your Node.js Versions](https://www.npmjs.com/package/n#n--interactively-manage-your-nodejs-versions)
+[n or nvm for managing node versions](https://stackoverflow.com/questions/41666010/n-or-nvm-for-managing-node-versions-is-keeping-global-modules-for-each-version)
