@@ -161,7 +161,7 @@ type MyInstanceType<T extends abstract new (...args: any) => any>
 
 ## 3.4 ThisType
 
-
+메서드들에 this를 주입하는 타입
 
 ```ts
 type Data = { money: number };
@@ -186,6 +186,15 @@ const obj: Obj = {
     }
   }
 };
+```
+
+아래 구문 실행 시 money 값이 변경되지 않음
+
+```ts
+obj.methods.addMoney(10)
+console.log(obj.data)
+
+// { "money": 0 }
 ```
 
 ## 3.5 forEach 만들기
