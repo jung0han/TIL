@@ -145,7 +145,48 @@ type Result = Optional<{ a: 'hi', b: 123 }, 'a'>;
 ```
 ## 3.3 Parameters, ConstructorParameters, ReturnType, InstanceType
 
+```ts
+type MyParameters<T extends (...args: any) => any>
+  = T extends (...args: infer P) => any ? P : never;
+
+type MyConstructorParameters<T extends abstract new (...args: any) => any>
+  = T extends abstract new (...args: infer P) => any ? P : never;
+
+type MyReturnType<T extends (...args: any) => any>
+  = T extends (...args: any) => infer R ? R : any;
+
+type MyInstanceType<T extends abstract new (...args: any) => any>
+  = T extends abstract new (...args: any) => infer R ? R : any;
+```
+
 ## 3.4 ThisType
+
+
+
+```ts
+type Data = { money: number };
+type Methods = {
+  addMoney(amount: number): void;
+  useMoney(amount: number): void;
+};
+type Obj = {
+  data: Data;
+  methods: Methods & ThisType<Data & Methods>;
+};
+const obj: Obj = {
+  data: {
+    money: 0,
+  },
+  methods: {
+    addMoney(amount) {
+      this.money += amount;
+    },
+    useMoney(amount) {
+      this.money -= amount;
+    }
+  }
+};
+```
 
 ## 3.5 forEach 만들기
 
