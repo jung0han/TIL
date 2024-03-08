@@ -199,13 +199,109 @@ console.log(obj.data)
 
 ## 3.5 forEach 만들기
 
+```ts
+interface Array<T> {
+  myForEach(callback: (v: T, i: number, a: T[]) => void): void;
+}
+```
+
+this에서 발생하는 에러를 수정하기 위해 K를 선언하고 thisArg가 없을 경우 Window로 기본 설정
+
+```ts
+interface Array<T> {
+  myForEach<K = Window>(callback: (this: K, v: T, i: number, a: T[]) => void, thisArg?: K): void;
+}
+```
 ## 3.6 map 만들기
+
+map과 forEach의 가장 큰 차이는 반환값이 있다는 것이며 반환값을 타입을 미리 알 수 없으므로 제네릭 타입으로 선언
+
+```ts
+interface Array<T> {
+  myMap<R>(callback: (v: T, i: number, a: T[]) => R): R[];
+}
+```
 
 ## 3.7 filter 만들기
 
+오버로딩을 활용해 타입 서술 없이도 타입 추론이 가능하도록 작성
+
+```ts
+const r1 = [1, 2, 3].myFilter((v) => v < 2);
+// const r1: number[]
+const r2 = [1, 2, 3].myFilter((v, i, a): v is never => false);
+const r3 = ['1', 2, '3'].myFilter((v): v is string => typeof v === 'string');
+const r4 = [{ num: 1 }, { num: 2 }, { num: 3 }].myFilter(
+  function(v) {
+    return v.num % 2 === 1;
+  }
+);
+
+/*
+const r4: {
+  num: number
+}[]
+*/
+
+interface Array<T> {
+  myFilter<S extends T>(callback: (v: T, i: number, a: T[]) => v is S, thisArg?: any): S[];
+  myFilter(callback: (v: T, i: number, a: T[]) => boolean, thisArg?: any): T[];
+}
+```
 ## 3.8 reduce 만들기
 
+reduce 메서드는 콜백 함수의 매개변수가 네 개로 누적값 a, 현재값 c, 인덱스 i, 원본 배열 arr로 구성
+
+반환값은 요소의 타입과 다를 수 있으므로 오버로딩을 추가
+
+```ts
+const r1 = [1, 2, 3].myReduce((a, c) => a + c); // 6
+const r2 = [1, 2, 3].myReduce((a, c, i, arr) => a + c, 10); // 16
+const r3 = [{ num: 1 }, { num: 2 }, { num: 3 }].myReduce(
+  function(a, c) {
+    return { ...a, [c.num]: 'hi' };
+  },
+  {},
+); // { 1: 'hi', 2: 'hi', 3: 'hi' }
+const r4 = [{ num: 1 }, { num: 2 }, { num: 3 }].myReduce(
+  function(a, c) {
+    return a + c.num;
+  },
+  '',
+); // '123'
+
+interface Array<T> {
+  myReduce(callback: (a: T, c: T, i: number, arr: T[]) => T, iV?: T): T;
+  myReduce<S>(callback: (a: S, c: T, i: number, arr: T[]) => S, iV: S): S;
+}
+```
+
 ## 3.9 flat 분석하기
+
+flat은 배열의 차원을 한 단계 낮추는 메서드
+
+depth가 21일 때 까지만 대비되어 있어 22 이상일 때는 최대한 flat한 값으로 출력된다
+
+```ts
+type FlatArray<Arr, Depth extends number> = {
+  "done": Arr,
+  "recur": Arr extends ReadonlyArray<infer InnerArr>
+    ? FlatArray<InnerArr, [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20][Depth]>
+    : Arr
+}[Depth extends -1 ? "done" : "recur"];
+...
+interface Array<T> {
+  flatMap<U, This = undefined> (
+    callback: (this: This, value: T, index: number, array: T[]) => U | ReadonlyArray<U>,
+    thisArg?: This
+  ): U[]
+
+  flat<A, D extends number = 1>(
+    this: A,
+    depth?: D
+  ): FlatArray<A, D>[]
+}
+```
 
 ## 3.10 Promise, Awaited 타입 분석하기
 
