@@ -280,7 +280,9 @@ interface Array<T> {
 
 flat은 배열의 차원을 한 단계 낮추는 메서드
 
-depth가 21일 때 까지만 대비되어 있어 22 이상일 때는 최대한 flat한 값으로 출력된다
+FlatArray는 인덱스 접근 방식으로 컨디셔널 타입을 구현한 타입으로 Depth가 -1일 때는 `done`, 그 외의 경우 `recur`을 출력한다
+
+타입스크립트에서는 숫자 리터럴 타입에 연산을 할 수 없으므로 -1부터 20까지의 숫자를 미리 지정하고 있으며  depth가 21일 때 까지만 대비되어 있어 22 이상일 때는 최대한 flat한 값으로 출력된다
 
 ```ts
 type FlatArray<Arr, Depth extends number> = {
@@ -301,6 +303,18 @@ interface Array<T> {
     depth?: D
   ): FlatArray<A, D>[]
 }
+```
+
+Depth마다 GetInner를 통해 InnerArr 를 출력하여 차원이 낮아진다
+
+```ts
+type GetInner<Arr> = Arr extends ReadonlyArray<infer InnerArr>
+  ? InnerArr
+  : Arr;
+type OneDepthInner = GetInner<(number | (number | number[])[])[]>;
+// type OneDepthInner = number | (number | number[])[]
+type TwoDepthInner = GetInner<OneDepthInner>;
+// type TwoDepthInner = number | number[]
 ```
 
 ## 3.10 Promise, Awaited 타입 분석하기
